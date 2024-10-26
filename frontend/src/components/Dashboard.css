@@ -1,0 +1,127 @@
+.dashboard-container {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f4f8, #d9e6f2);
+    background-size: 400% 400%; /* For animated background */
+    animation: gradientAnimation 10s ease infinite; /* Animation for the background */
+    min-height: 100vh;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .dashboard-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px; /* Increased gap for more space between elements */
+    justify-items: stretch; /* Ensures all items stretch to fill their grid area */
+    align-items: start; /* Aligns items to the start of the grid cell */
+    padding: 20px;
+  }
+  
+  .dashboard-card {
+    width: 80%; /* Makes sure each card takes the full width of its grid cell */
+    background: linear-gradient(145deg, #007bff, #5a9df8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Added background transition */
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin: 0; /* Remove margin on the cards for better grid layout */
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(145deg, #0056b3, #4a8fd6); /* Darken background on hover */
+  }
+  
+  .dashboard-card:before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+  
+  .dashboard-card:hover:before {
+    opacity: 1;
+  }
+  
+  .dashboard-card:hover .card-content {
+    opacity: 0.9;
+  }
+  
+  .card-content {
+    z-index: 1;
+    position: relative;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .dashboard-card {
+    animation: slideIn 0.5s ease forwards; /* Ensure the animation is triggered correctly */
+  }
+  
+  /* Glowing effect on hover */
+  .dashboard-card:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6), 0 0 30px rgba(0, 123, 255, 0.4);
+  }
+  
+  /* Button Styles */
+  .card-button {
+    margin: 10px 0; /* Margin on top and bottom for spacing between buttons */
+    padding: 8px 15px; /* Adjusted padding for a shorter button */
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff; /* Button background */
+    color: #007bff; /* Button text color */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for smooth effects */
+    display: inline-block; /* Ensures the button does not stretch */
+    width: 80%; /* Make the button a specific percentage of the card width */
+    max-width: 200px; /* Set a maximum width for the button */
+    text-align: center; /* Center the text in the button */
+  }
+  
+  .card-button:hover {
+    background-color: #e0e0e0; /* Lighten button background on hover */
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  
